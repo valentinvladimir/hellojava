@@ -1,5 +1,7 @@
-FROM alpine:latest
-RUN javac HelloWorld.java
-ADD HelloWorld.class HelloWorld.class
-RUN apk --update add openjdk8-jre
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "HelloWorld"]
+FROM nginx
+ENV AUTHOR=Docker
+
+WORKDIR /usr/share/nginx/html
+COPY Hello_docker.html /usr/share/nginx/html
+
+CMD cd /usr/share/nginx/html && sed -e s/Docker/"$AUTHOR"/ Hello_docker.html > index.html ; nginx -g 'daemon off;'
