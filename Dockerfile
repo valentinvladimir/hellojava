@@ -1,3 +1,7 @@
+RUN mkdir -p $JENKINS_HOME/.docker/ && \
+    echo '{"auths":{}}' > $JENKINS_HOME/.docker/config.json
+ENV DOCKER_CONFIG $JENKINS_HOME/.docker
+
 FROM nginx
 ENV AUTHOR=Docker
 
