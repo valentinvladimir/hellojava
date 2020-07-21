@@ -7,4 +7,6 @@ RUN npm install --only=production
 
 EXPOSE 3000
 
+RUN echo "Pipeline test!"
+
 CMD [ "npm", "start" ]
