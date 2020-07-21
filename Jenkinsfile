@@ -7,8 +7,8 @@ node {
 
     env.AWS_ECR_LOGIN=true
   
-	      stage('Git') {
-		            git 'https://github.com/valentinvladimir/hellojava'
+	stage('Git') {
+	  git 'https://github.com/valentinvladimir/hellojava'
         }
         stage('Build') {
           sh 'npm install'
